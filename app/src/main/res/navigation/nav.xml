@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_employee"
+        android:id="@+id/employee"
+        android:name="com.example.hospital.UI.hr.Employee.Employee"
+        android:label="Employee" >
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_register"
+        android:id="@+id/register"
+        android:name="com.example.hospital.UI.hr.Register.Register"
+        android:label="Register" >
+        <action
+            android:id="@+id/action_register_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_home"
+        android:id="@+id/home2"
+        android:name="com.example.hospital.UI.hr.Home.Home"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_home2_to_employee"
+            app:destination="@id/employee" />
+        <action
+            android:id="@+id/action_home2_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_home2_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/loginFragment"
+        android:name="com.example.hospital.UI.auth.Login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_home2"
+            app:destination="@id/home2"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_patientRegister"
+            app:destination="@id/patientRegister" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_patient_register"
+        android:id="@+id/patientRegister"
+        android:name="com.example.hospital.UI.auth.Register.PatientRegister"
+        android:label="PatientRegister" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.Myprofile.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="5" />
+    </fragment>
+</navigation>
